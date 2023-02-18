@@ -47,14 +47,14 @@ def second_task(data_: Dict) -> List:
     characters = data_.get("characters")  # returns None by default
 
     names = []
-    for i in characters:
-        foo = requests.get(i)
-        bar = foo.json()
-        names.append(bar.get("name"))
-    # for character in characters:
-    #     character_data = hit_url(character)
-    #     character_data = character_data.json()
-    #     names.append(character_data.get("name"))
+    # for i in characters:
+    #     foo = requests.get(i)
+    #     bar = foo.json()
+    #     names.append(bar.get("name"))
+    for character in characters:
+        character_data = hit_url(character)
+        character_data = character_data.json()
+        names.append(character_data.get("name"))
 
     # names = []
     # all_characters = fetch_data(characters)
