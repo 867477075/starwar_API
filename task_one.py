@@ -3,7 +3,6 @@
 PROBLEM STATEMENT
 ----------------------
 
-
 The Star Wars API lists 82 main characters in the Star Wars saga.
 
 For the first task, we would like you to use a random number generator
@@ -57,9 +56,10 @@ if __name__ == "__main__":
    """
 
     resources = generate_random_numbers(15)
+
     print(f"[ INFO ] produced {len(resources)}"
           f" random resource ids in range(1, 83).")
-    breakpoint()
+
     data = []
     for resource_id in resources:
         print(f"[ INFO ] fetching data for resource_id {resource_id}...")

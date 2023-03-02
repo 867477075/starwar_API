@@ -43,16 +43,14 @@ def first_task() -> Dict:
 
 def second_task(data_: Dict) -> List:
     """pull data from swapi characters sequentially"""
+    names = []
+    characters = data_.get("{}".format(object1.people))  # returns None by default
 
-    characters = data_.get("characters")  # returns None by default
+    for character in characters:
+        character_data = hit_url(character)
+        character_data = character_data.json()
+        names.append(character_data.get("name"))
 
-
-    # for character in characters:
-    #     character_data = hit_url(character)
-    #     character_data = character_data.json()
-    #     names.append(character_data.get("name"))
-
-    # names = []
     # all_characters = fetch_data(characters)
     # for character in all_characters:
     #     names.append(character.get("name"))
@@ -63,7 +61,7 @@ def second_task(data_: Dict) -> List:
 def third_task(data_: Dict) -> List:
     """pull data from swapi characters sequentially"""
 
-    planets = data_.get("planets")  # returns None by default
+    planets = data_.get("{}".format(object1.planet))  # returns None by default
 
     planets_names = []
     for planet in planets:
@@ -77,7 +75,7 @@ def third_task(data_: Dict) -> List:
 def fourth_task(data_: Dict) -> List:
     """pull data from swapi characters sequentially"""
 
-    vehicles = data_.get("vehicles")  # returns None by default
+    vehicles = data_.get("{}".format(object1.vehicle))  # returns None by default
 
     vehicles_names = []
     for vehicle in vehicles:
@@ -94,37 +92,28 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--films", "--FILMS")
-    parser.add_argument("--people", "--PEOPLE")
-    parser.add_argument("--planets", "--PLANETS")
-    parser.add_argument("--vehicles", "--VEHICLES")
+    parser.add_argument("--people","--PEOPLE")
+    parser.add_argument("--planet","--PLANET")
+    parser.add_argument("--vehicle","--VEHICLE")
 
     object1 = parser.parse_args()
-    if "people" == object1.people or "PEOPLE" == object1.people:
-        FIRST_FILM_URL = "https://swapi.dev/api/{}/".format(object1.people)
 
-    elif "films" == object1.films or "FILMS" == object1.films:
-        FIRST_FILM_URL = "https://swapi.dev/api/films/{}/".format(object1.films)
+    FIRST_FILM_URL = "https://swapi.dev/api/films/{}/".format(object1.films)
 
-    elif "planets" == object1.planets or "PLANET" == object1.planets:
-        FIRST_FILM_URL = "https://swapi.dev/api/{}/".format(object1.planets)
 
-    elif "vehicles" == object1.vehicles or "VEHICLES" == object1.vehicles:
-        FIRST_FILM_URL = "https://swapi.dev/api/{}/".format(object1.vehicles)
-    else:
-        FIRST_FILM_URL = "https://swapi.dev/api/{}/"
-        print("Wrong input please check")
+
     # first task
     first_result = first_task()
     pprint(first_result)
 
-    # # second task
-    # second_result = second_task(first_result)
-    # pprint(second_result)
-    #
-    # # third result
-    # third_result = third_task(first_result)
-    # pprint(third_result)
-    #
-    # # fourth result
-    # fourth_result = fourth_task(first_result)
-    # pprint(fourth_result)
+    # second task
+    second_result = second_task(first_result)
+    pprint(second_result)
+
+    # third result
+    third_result = third_task(first_result)
+    pprint(third_result)
+
+    # fourth result
+    fourth_result = fourth_task(first_result)
+    pprint(fourth_result)
