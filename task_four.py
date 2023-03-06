@@ -1,6 +1,10 @@
 """
 TODO
+<<<<<<< HEAD
 changes done by developer2
+=======
+Changes done at line number 3
+>>>>>>> c98088decbe5490a09e563188ceaba7abf36f302
 1. Pull data for the first movie ("A New Hope") and save in DB.
 
 2. Replace the data for each endpoint listed in the JSON object and insert
