@@ -8,7 +8,7 @@ import argparse
 from pprint import pprint
 from resources.films import Film
 from resources.vehicles import Vehicle
-from resources.characters import People
+from resources.people import People
 from resources.species import Species
 from resources.planets import Planet
 from resources.starships import Starship

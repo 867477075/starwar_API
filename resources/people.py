@@ -1,11 +1,12 @@
+from typing import Dict, List
 from resources.base import ResourceBase
 from utils.fetch_data import hit_url
-from typing import Dict
+from utils.randgen import ProduceUrls
 
 
-class Character(ResourceBase):
+class People(ResourceBase):
     """
-    Character class related functionality
+    People class related functionality
     """
 
     def __init__(self) -> None:
@@ -19,12 +20,21 @@ class Character(ResourceBase):
         count = data.get("count")
         return count
 
+    def get_resource_urls(self) -> List:
+        data_ = []
+        complete_url = self.home_url + self.relative_url
+        response = hit_url(complete_url)
+        data = response.json()
+        url = data.get("results")
+        for data in url:
+            data_.append(data["url"])
+
+        return data_
+
     def get_sample_data(self, id_: int = 1) -> Dict:
         """
-
         Args:
             id_: sample id of the resource
-
         Returns:
             data (dict): output data from API endpoint.
         """
@@ -34,7 +44,5 @@ class Character(ResourceBase):
         data = response.json()
         return data
 
-
-if __name__ == "__main__":
-    Character().get_count()
-
+    def pull_random_data(self):
+        return ProduceUrls(self.get_resource_urls()).function()

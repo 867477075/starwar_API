@@ -1,7 +1,7 @@
 from pprint import pprint
 from resources.films import Film
 from resources.vehicles import Vehicle
-from resources.characters import People
+from resources.people import People
 from resources.species import Species
 from resources.planets import Planet
 from resources.starships import Starship
@@ -10,7 +10,7 @@ from resources.starships import Starship
 from models.datamodels.films import Film_
 from models.datamodels.species import Species_
 from models.datamodels.planets import Planet_
-from models.datamodels.starships import StarShips_
+from models.datamodels.starships import Starship_
 from models.datamodels.vehicles import Vehicle_
 from models.datamodels.characters import Character_
 
@@ -73,7 +73,7 @@ if __name__ == "__main__":
     st_urls = starships_object.get_resource_urls()
     pprint(f"starships url = {st_urls}")
     starships_data = starships_object.get_sample_data(id_ = 9)
-    starships_data = StarShips_(**starships_data)
+    starships_data = Starship_(**starships_data)
     pprint(starships_object.pull_random_data())
 
     breakpoint()

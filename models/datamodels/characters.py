@@ -19,6 +19,7 @@ class Character_(Base):
     species: Optional[List[str]]
     starships: Optional[List[str]]
     vehicles: Optional[List[str]]
+    starships: Optional[List[str]]
 
 
 if __name__ == "__main__":

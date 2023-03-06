@@ -28,3 +28,4 @@ class Species_(Base):
     # relationship attribute fields
     people: Optional[List[str]]
     films: Optional[List[str]]
+
