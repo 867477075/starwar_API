@@ -12,7 +12,10 @@ Using these random numbers you will be pulling 15 characters
 from the API using Python.
 
 """
+
+
 # changes added on line 15 by deveolper2
+
 
 import random
 import requests
